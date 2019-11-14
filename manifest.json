@@ -1,0 +1,27 @@
+{
+	"manifest_version":2,
+	"name": "batch copy paste",
+	"short_name": "BCP",
+
+	"version": "3.0",
+	
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html",
+		"default_title": "copy paste text"
+	},
+	"background":
+	{
+		"scripts": ["background.js"]
+	},
+	 "content_scripts": [
+	{
+     "matches": ["<all_urls>"],
+     "js": ["content.js"]
+	}
+	],
+	"permissions":
+	[
+		"tabs", "contextMenus"
+	]		
+}
