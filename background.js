@@ -1,5 +1,5 @@
 var batches = [];
-var sent = []
+var sent = 0;
 var element = undefined;
 var value = undefined;
 function paste(e,tab) {
@@ -8,10 +8,11 @@ function paste(e,tab) {
 	}
 }
 function sendMessage(tabs){
-	chrome.tabs.sendMessage(tabs[0].id, {text:batches[sent.length]});
-	sent.push(true);
-	if (sent.length == batches.length){
-		sent = [];
+	chrome.tabs.sendMessage(tabs[0].id, {text:batches[sent]});
+	sent++;
+	if (sent == batches.length){
+		sent = 0;
+                alert('finished');
 	}
 }
 
